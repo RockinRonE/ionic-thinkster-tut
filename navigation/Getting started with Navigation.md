@@ -19,7 +19,7 @@ Update** src/pages/home/home.html** to the following:
   <ion-navbar color="primary">
 
     <ion-title>
-      My Title
+      My Todo List
     </ion-title>
     
     <ion-buttons end> 
@@ -35,7 +35,7 @@ Update** src/pages/home/home.html** to the following:
 
 What the header should look like: 
 
-![Screen Shot 2016-11-29 at 10.18.15 AM.png](resources/8D7D957F489AC69767083CA08AA36FD1.png)
+![Screen Shot 2016-11-30 at 4.02.29 PM.png](resources/9C8E31694718E8AD7F0C01CAC58425EA.png)
 
 Lets walk though this line by line. The `​<ion-header>`​ defines the header and we create an [ion-navbar](http://ionicframework.com/docs/v2/api/components/navbar/Navbar/) and set it’s color to “primary" it on line 3\. Color variables such as this are defined at **theme/variable.scss**. The `​[ion-title](http://ionicframework.com/docs/v2/api/components/toolbar/Title/)`​ displays a text title and can display header images as well. 
 
@@ -55,8 +55,8 @@ Lets build out the rest of our checklist. Add the following code below `​</ion
     <ion-item-sliding>
 
       <button ion-item>
-        BUTTON TITLE 
-        <span>0 things</span>
+        Location 
+        <span>0 todos</span>
       </button>
 
       <ion-item-options>
@@ -82,22 +82,22 @@ Lets build out the rest of our checklist. Add the following code below `​</ion
 
 You should see this: 
 
-![Screen Shot 2016-11-29 at 12.14.15 PM.png](resources/5433164D46C834EF152F7F110E864F51.png)
+![Screen Shot 2016-11-30 at 4.03.36 PM.png](resources/6B47AF53B7BCE09F019EF69CE1109399.png)
 
 Slide the bar to the left to see the Edit and Delete buttons we created in [​ion-item-sliding](http://ionicframework.com/docs/v2/components/#sliding-list).
 
-That’s it for now for the Homepage. Lets get our ListPage built out.
+That’s it for now for the Homepage. Lets get our TodolistPage built out.
 
 Building out our GrocerylistPage
 --------------------------------
 
-Create our GrocerylistPage by running the following Ionic CLI command:
+Create our TodolistPage by running the following Ionic CLI command:
 
-`​ionic g page GrocerylistPage`
+`​ionic g page TodolistPage`
 
 And you’ll see the following generated in your file directory:
 
-![Screen Shot 2016-11-29 at 1.11.14 PM.png](resources/FD5C3FDFE43D9286220A495D9EB76A89.png)
+![Screen Shot 2016-11-30 at 4.04.31 PM.png](resources/8FF47D374847B170F61673EB703C1DFD.png)
 
 We need to let Ionic know about this page by importing it in the entry point of our app **src/app/app.module.ts **by updating it to look like this:
 
@@ -107,13 +107,13 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
-import { GrocerylistPage } from '../pages/grocerylist-page/grocerylist-page';
+import { TodolistPage } from '../pages/todolist-page/todlist-page';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    GrocerylistPage
+    TodolistPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -122,7 +122,7 @@ import { GrocerylistPage } from '../pages/grocerylist-page/grocerylist-page';
   entryComponents: [
     MyApp,
     HomePage,
-    GrocerylistPage
+    TodolistPage
   ],
   providers: []
 })
@@ -131,9 +131,9 @@ export class AppModule {}
 
 ```
 
-In the above image we imported our GrocerylistPage on line 6 and then declared it on line 12 and line 21\. Any pages we create need to be added to both the `declarations` and `entryComponents` array. Any providers we create will be added to the providers array, and any components or pipes we create will only need to be added to the `declarations` array.
+In the above image we imported our TodolistPage on line 6 and then declared it on line 12 and line 21\. Any pages we create need to be added to both the `declarations` and `entryComponents` array. Any providers we create will be added to the providers array, and any components or pipes we create will only need to be added to the `declarations` array.
 
-Lets now get to work building out **src/pages/grocerylist-page/grocerylist-page.html**. Update your file to the following:
+Lets now get to work building out **src/pages/todolist-page/todolist-page.html**. Update your file to the following:
 
 ```js
 <ion-header>
@@ -141,7 +141,7 @@ Lets now get to work building out **src/pages/grocerylist-page/grocerylist-page.
   <ion-navbar color="primary">
 
     <ion-title>
-      Grocerylist Title
+      Todos
     </ion-title>
 
     <ion-buttons end>
@@ -166,7 +166,7 @@ Lets now get to work building out **src/pages/grocerylist-page/grocerylist-page.
     <ion-item-sliding>
 
       <ion-item>
-        <ion-label>Item Title</ion-label>
+        <ion-label>Todo #1</ion-label>
         <ion-checkbox></ion-checkbox>
       </ion-item>
 
@@ -223,24 +223,24 @@ Update `​viewChecklist`​ to the following so we can navigate to a specific l
 
 ```js
 viewChecklist(checklist): void {
-    this.navCtrl.push(GrocerylistPage, {
+    this.navCtrl.push(TodolistPage, {
       checklist: checklist
     });
   }
 ```
 
-Since we need `​GrocerylistPage`​, we’ll need to import it by adding the following line of code at the top of our page:
+Since we need `​TodolistPage`​, we’ll need to import it by adding the following line of code at the top of our page:
 
 ```js
-import { GrocerylistPage } from '../grocerylist-page/grocerylist-page';
+import { TodolistPage } from '../todolist-page/todolist-page';
 ```
 
 Now we need to call `viewChecklist` from our `button` on `home.html` by adding :
 
 ```js
      <button ion-item (click)="viewChecklist(checklist)">
-        BUTTON TITLE 
-        <span>0 things</span>
+        Location 
+        <span>0 todos</span>
       </button>
 ```
 
