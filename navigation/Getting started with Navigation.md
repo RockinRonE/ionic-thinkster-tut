@@ -88,8 +88,8 @@ Slide the bar to the left to see the Edit and Delete buttons we created in [​i
 
 That’s it for now for the Homepage. Lets get our TodolistPage built out.
 
-Building out our GrocerylistPage
---------------------------------
+Building out our TodolistPage
+-----------------------------
 
 Create our TodolistPage by running the following Ionic CLI command:
 
@@ -210,7 +210,7 @@ export class HomePage {
     
   }
 
-  viewChecklist(checklist): void {
+  viewTodolist(todolist): void {
 
   }
 
@@ -222,9 +222,9 @@ We’re importing `Component` from Angular that allows us to use the [@Component
 Update `​viewChecklist`​ to the following so we can navigate to a specific location’s checklist:
 
 ```js
-viewChecklist(checklist): void {
+viewTodolist(todolist): void {
     this.navCtrl.push(TodolistPage, {
-      checklist: checklist
+      todolist: todolist
     });
   }
 ```
@@ -238,7 +238,7 @@ import { TodolistPage } from '../todolist-page/todolist-page';
 Now we need to call `viewChecklist` from our `button` on `home.html` by adding :
 
 ```js
-     <button ion-item (click)="viewChecklist(checklist)">
+     <button ion-item (click)="viewTodolist(todolist)">
         Location 
         <span>0 todos</span>
       </button>
