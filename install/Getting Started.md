@@ -85,6 +85,29 @@ If you’re curious about other available platforms, run this command:
 
 `  ionic platform`
 
+Get Your App Ready to Go
+------------------------
+
+We will need to a ‘whitelist’ policy for our app that defines what is allowed to be loaded in our app by running the following command:
+
+`​ionic plugin add cordova-plugin-whitelist`
+
+```
+
+```
+
+We’ll also need to add a [Content Security Policy](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/) that controls which network requests are allowed to be made. Add the following to **src/index.html:**
+
+```html
+<meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src * data:; default-src * 'unsafe-eval' 'unsafe-inline'"> 
+```
+
+It’s also a good idea to always add the [Crosswalk](https://crosswalk-project.org/) plugin to ensure that your app works well on older devices by running the following command:
+
+`​ionic plugin add cordova-plugin-crosswalk-webview`
+
+
+
 
 
 
