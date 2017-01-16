@@ -96,7 +96,7 @@ We will need to a ‘whitelist’ policy for our app that defines what is allowe
 
 ```
 
-We’ll also need to add a [Content Security Policy](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist/) that controls which network requests are allowed to be made. Add the following to **src/index.html:**
+We’ll also need to add a [Content Security Policy](https://content-security-policy.com/) that controls which network requests are allowed to be made. Add the following to **src/index.html:**
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src * data:; default-src * 'unsafe-eval' 'unsafe-inline'"> 
