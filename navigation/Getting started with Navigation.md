@@ -1,3 +1,5 @@
+STEP 2
+
 The best way to learn how to start building with Ionic is to actually build something. Here we’re going to build a traditional todo list. Sounds boring, but it teaches basic CRUD functionality and we’ll add a few perks in the process to spice things up. 
 
 Be sure to have your app running in the browser with `​ionic serve`​ !
